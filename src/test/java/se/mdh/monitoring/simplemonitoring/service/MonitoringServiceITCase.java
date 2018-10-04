@@ -17,7 +17,7 @@ public class MonitoringServiceITCase {
   private MonitoringService monitoringService;
 
   @Test
-  public void getStatusMap() {
+  public void getStatusMap() throws Exception {
     Map<String, Object> statusMap = monitoringService.getStatusMap();
     assertFalse(statusMap.keySet().isEmpty());
   }

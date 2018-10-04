@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+    <head>
+        <title>Status för tjänster</title>
+    </head>
+    <body>
+
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+
+                <h2 th:text="'Status för tjänster - ' + ${enviroment}"></h2>
+
+                <div class="status-row" th:each="status : ${statusmap}">
+                    <div class="column left" th:text="${status.key}">key</div>
+                    <div class="column right" th:switch="${status.value}">
+                        <span class="dot" th:case="0" th:classappend="green"></span>
+                        <span class="dot" th:case="1" th:classappend="red"></span>
+                        <span class="dot" th:case="2" th:classappend="red"></span>
+                        <span class="dot" th:case="3" th:classappend="orange"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

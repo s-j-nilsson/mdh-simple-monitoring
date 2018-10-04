@@ -23,6 +23,11 @@
             </button>
         </div>
         <a href="/list" class="navbar-brand"><img src="/img/mdh-neg-logo.png"/></a>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left" th:with="view=${#httpServletRequest.getServletPath()}">
+                <li class="active"><a href="/monitoring">Status för tjänster</a></li>
+            </ul>
+        </div>
     </nav>
         <div class="container">
             <div class="starter-template" layout:fragment="content"></div>

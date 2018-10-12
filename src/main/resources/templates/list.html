@@ -5,6 +5,13 @@
       layout:decorator="default">
     <head>
         <title>Status för tjänster</title>
+        <script type="text/javascript" class="init">
+
+          $(document).ready(function() {
+            $('#services-table').DataTable();
+          } );
+
+        </script>
     </head>
     <body>
 
@@ -13,15 +20,34 @@
 
                 <h2 th:text="'Status för tjänster - ' + ${enviroment}"></h2>
 
-                <div class="status-row" th:each="status : ${statusmap}">
-                    <div class="column left" th:text="${status.key}">key</div>
-                    <div class="column right" th:switch="${status.value}">
-                        <span class="dot" th:case="0" th:classappend="green"></span>
-                        <span class="dot" th:case="1" th:classappend="red"></span>
-                        <span class="dot" th:case="2" th:classappend="red"></span>
-                        <span class="dot" th:case="3" th:classappend="orange"></span>
-                    </div>
-                </div>
+                <table class="table, display" id="services-table">
+                    <thead>
+                    <tr>
+                        <th>Namn</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="status : ${statusmap}">
+                        <td th:text="${status.key}"></td>
+                        <td th:switch="${status.value}"><span class="dot" th:case="0" th:classappend="green">0</span>
+                            <span class="dot" th:case="1" th:classappend="red">3</span>
+                            <span class="dot" th:case="2" th:classappend="red">3</span>
+                            <span class="dot" th:case="3" th:classappend="orange">2</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <!--<div class="status-row" th:each="status : ${statusmap}">-->
+                    <!--<div class="column left" th:text="${status.key}">key</div>-->
+                    <!--<div class="column right" th:switch="${status.value}">-->
+                        <!--<span class="dot" th:case="0" th:classappend="green"></span>-->
+                        <!--<span class="dot" th:case="1" th:classappend="red"></span>-->
+                        <!--<span class="dot" th:case="2" th:classappend="red"></span>-->
+                        <!--<span class="dot" th:case="3" th:classappend="orange"></span>-->
+                    <!--</div>-->
+                <!--</div>-->
             </div>
         </div>
     </body>

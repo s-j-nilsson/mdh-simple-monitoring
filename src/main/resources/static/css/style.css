@@ -42,6 +42,7 @@ body {
   width: 25px;
   border-radius: 50%;
   display: inline-block;
+  color: transparent;
 }
 
 .dot.green {
